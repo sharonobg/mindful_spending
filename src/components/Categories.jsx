@@ -2,11 +2,7 @@ import {headers} from "next/headers"
 
 const getCategories = async () => {
     try{
-<<<<<<< HEAD
         const res = await fetch("https://sharonobrien.com/api/category",{
-=======
-        const res = await fetch("https://mindful-spending-22924.vercel.app/api/category",{
->>>>>>> 427f795e2bfa429da2caaa63c57967e8804ce5a4
            //cache: 'no-store',
            method: "GET",
            headers: headers(),
