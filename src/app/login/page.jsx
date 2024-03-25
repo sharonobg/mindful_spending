@@ -2,7 +2,6 @@
 import React,{useState,useEffect} from 'react';
 import Link from 'next/link';
 import {ToastContainer ,toast,cssTransition,Bounce} from 'react-toastify';
-import GithubButton from '../../components/GithubButton';
 import 'react-toastify/dist/ReactToastify.css';
 import {useRouter} from 'next/navigation';
 import {signIn,signOut} from 'next-auth/react'
@@ -40,7 +39,7 @@ const Login = () => {
             if (res.ok){
                 setLoggedIn(true)
                 console.log('res',res)
-                router.push("/")
+                router.push("/dashboard")
                 //toast.success("success")
 
               
@@ -73,8 +72,7 @@ const Login = () => {
                         <Link href="/register">Don&apos;t have an account?<br />Register now</Link>
                         </div>
                 </form>
-                <h2 className="text-3xl font-semibold text-blue-400">OR</h2>
-                <GithubButton />
+               
             </div>
         </div>
         <ToastContainer />

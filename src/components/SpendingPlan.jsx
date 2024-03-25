@@ -2,7 +2,7 @@ import {headers} from "next/headers"
 
 const getTotals = async () => {
     try{
-        const res = await fetch("http://localhost:3000/api/transactiontitle-totals",{
+        const res = await fetch("https://sharonobrien.com/api/transactiontitle-totals",{
            cache: 'no-store',
            method: "GET",
            headers: headers(),
@@ -19,7 +19,7 @@ const getTotals = async () => {
 }
 const getGrandTotals = async (props) => {
     try{
-        const res = await fetch("http://localhost:3000/api/spending-totals-category",{
+        const res = await fetch("https://sharonobrien.com/api/spending-totals-category",{
            cache: 'no-store',
            method: "GET",
            headers: headers(),
@@ -34,7 +34,7 @@ const getGrandTotals = async (props) => {
 }
 // const getCategories = async () => {
 //     try{
-//         const res = await fetch("http://localhost:3000/api/category",{
+//         const res = await fetch("https://sharonobrien.com/api/category",{
 //            cache: 'no-store',
 //            method: "GET",
 //            headers: headers(),

@@ -20,7 +20,7 @@ const CreateTransaction = () => {
 
     useEffect(() => {
     
-        fetch('http://localhost:3000/api/category')
+        fetch('/api/category')
           .then((res) => res.json())
           .then(({categories}) => {
             setCategories(categories)
@@ -44,7 +44,7 @@ const CreateTransaction = () => {
             //const transdate = new Date().toISOString();
             //console.log('transdate react-datepicker: ',transdate)
             //const amount = parseFloat(amount).toFixed(2);
-            const res = await fetch('http://localhost:3000/api/transaction',{
+            const res = await fetch('/api/transaction',{
                 headers:{
                     "Content-type":"application/json",
                     "Authorization":`Bearer ${session?.user?.accessToken}`

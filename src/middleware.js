@@ -2,9 +2,13 @@ import {NextRequest, NextResponse} from "next/server";
 
 
     const allowedOrigins = [
-        'http://localhost:3000/',
-        'https://mindful-spending-22924.vercel.app/',
-        'https://mindful-spending.vercel.app/',
+      'http://sharonobrien.com',
+      'https://www.sharonobrien.com',
+      'http://www.sharonobrien.com',
+      'https://sharonobrien.com',
+    'http://localhost:3000/',
+    'https://mindful-spending-22924.vercel.app/',
+    'https://mindful-spending.vercel.app/',
     ]
     const corsOptions = {
         'Access-Control-Allow-Headers':
@@ -58,9 +62,10 @@ import {NextRequest, NextResponse} from "next/server";
 //export{default} from 'next-auth/middleware'
 export const config = {
     matcher:[
+    "/my-spending-plan/:path*",
     "/transaction/:path*",
     "/addCategory",  
-    "/api/:path*",
-    "/my-spending-plan/:path*"
+    "/api/:path*"
+    
 ]
 }

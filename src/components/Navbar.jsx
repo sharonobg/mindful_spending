@@ -15,17 +15,19 @@ export default function Navbar() {
     return(
         <nav className="flex flex-row align-middle max-w-[100%] px-8 py-3 bg-blue-400 justify-between">
             <Link className="text-white font-bold" href = {"/"}>Home</Link>
-            <Link className="text-white font-bold" href = {"/transaction"}>Add a transaction</Link>
-            <Link className="text-white font-bold" href = {"/my-spending-plan"}target="_blank">Spending Plan</Link>
-            <div className="text-white font-bold">{session? `Logged in with ${session.user?.email}` : "Please sign In"}</div>
             
-            <div className="flex flex-row ">
+            <div className="flex flex-row justify-around gap-5">
             {session?.user
             ?(
+                <><Link className="text-white font-bold" href = {"/transaction"}>Add a transaction</Link>
+            <Link className="text-white font-bold" href = {"/my-spending-plan"}target="_blank">Spending Plan</Link>
+            <div className="text-white font-bold">`Logged in with ${session.user?.email}`</div>
                 <button onClick={() => signOut()} className="text-white font-bold">Sign Out</button>
-            ):(<>
-                <button onClick={() =>  signIn()} className="text-white font-bold">Sign In</button>
+                <button onClick={(e) =>  {e.preventDefault(); signIn()}} className="text-white font-bold">Sign In</button>
                 <Link className="text-white font-bold ml-4" href="/register">Register</Link>
+                </>):(<>
+                {/*<button onClick={(e) =>  {e.preventDefault(); signIn()}} className="text-white font-bold">Sign In</button>
+                <Link className="text-white font-bold ml-4" href="/register">Register</Link>*/}
                 </>
                 )}
                 </div>

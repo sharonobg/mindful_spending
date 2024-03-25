@@ -82,7 +82,7 @@ const toggleShowPass =(e) => {
 
 
         try{
-            const res = await fetch("http://localhost:3000/api/register",{
+            const res = await fetch("/api/register",{
                 headers:{
                     "Content-type":"application/json"
                 },

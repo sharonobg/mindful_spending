@@ -2,7 +2,7 @@ import {headers} from "next/headers"
 
 const getCategories = async () => {
     try{
-        const res = await fetch("http://localhost:3000/api/category",{
+        const res = await fetch("https://sharonobrien.com/api/category",{
            //cache: 'no-store',
            method: "GET",
            headers: headers(),

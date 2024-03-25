@@ -13,7 +13,7 @@ const Edit = (ctx) => {
 useEffect(() => {
     async function fetchCategory(){
         const id = ctx.params.id;
-        const res = await fetch(`http://localhost:3000/api/category/${id}`);
+        const res = await fetch(`/api/category/${id}`);
         const category = await res.json();
         setTitle(category.title);
     }
@@ -36,7 +36,7 @@ const handleSubmit= async (e) => {
     try{
         const id = ctx.params.id;
         const body = {title}
-        const res = await fetch(`http://localhost:3000/api/category/${id}`,{
+        const res = await fetch(`/api/category/${id}`,{
         headers: {
             "Content-Type": 'application/json',
             "Authorization": `Bearer ${session?.user?.accessToken}`

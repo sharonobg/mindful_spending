@@ -23,7 +23,7 @@ const CreateCategory = () => {
             return
         }
         try{
-            const res = await fetch('http://localhost:3000/api/category',{
+            const res = await fetch('/api/category',{
                 headers:{
                     "Content-type":"application/json",
                     "Authorization":`Bearer ${session?.user?.accessToken}`

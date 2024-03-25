@@ -35,7 +35,7 @@ const Edit = (ctx) => {
     
 useEffect(() => {
     
-    fetch('http://localhost:3000/api/category')
+    fetch('/api/category')
       .then((res) => res.json())
       .then(({categories}) => {
         setCategories(categories)
@@ -47,7 +47,7 @@ useEffect(() => {
   useEffect(() => {
   async function fetchSpendingplan() {  
                          
-    const res = await fetch(`http://localhost:3000/api/my-spending-plan/${ctx.params.id}`
+    const res = await fetch(`/api/my-spending-plan/${ctx.params.id}`
     ,{cache:'no-store'}
     )
     const spendingplan = await res.json()
@@ -146,7 +146,7 @@ const handleSubmit= async (e) => {
         }
             
         }
-        const res = await fetch(`http://localhost:3000/api/spendingplan/${ctx.params.id}`,{
+        const res = await fetch(`/api/spendingplan/${ctx.params.id}`,{
     
         headers: {
             "Content-Type": 'application/json',
@@ -179,7 +179,7 @@ const handleDeleteA= async (e) => {
         //const body = {
         //    transdate,descr,acctype,categoryId,amount
         //}
-        const res = await fetch(`http://localhost:3000/api/spendingplan/${ctx.params.id}`,{
+        const res = await fetch(`/api/spendingplan/${ctx.params.id}`,{
     
         headers: {
             "Content-Type": 'application/json',
@@ -214,7 +214,7 @@ const handleDeleteA= async (e) => {
 //         if(confirmed){
 //             //ctx.params.id
             
-//             const res = await fetch(`http://localhost:3000/api/spendingplan/${ctx.params.id}`, {
+//             const res = await fetch(`/api/spendingplan/${ctx.params.id}`, {
 //                 method: "DELETE"
 //             });
 //             if(res.ok){
