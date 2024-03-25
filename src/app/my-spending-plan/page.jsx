@@ -36,10 +36,6 @@ const CreateSpendingPlan = () => {
     const router= useRouter();
    
     useEffect(() => {
-<<<<<<< HEAD
-=======
-      //fetch('http://localhost:3000/api/category')
->>>>>>> 427f795e2bfa429da2caaa63c57967e8804ce5a4
       fetch('/api/category')
         .then((res) => res.json())
         .then(({categories}) => {
@@ -175,11 +171,7 @@ console.log('categoryArr',categoryArr);
     try{
         //const amount = parseFloat(amount).toFixed(2);
          const res = await fetch('/api/my-spending-plan',{
-<<<<<<< HEAD
           //const newplan = await fetch('/api/my-spending-plan',{
-=======
-          //const newplan = await fetch('http://localhost:3000/api/my-spending-plan',{
->>>>>>> 427f795e2bfa429da2caaa63c57967e8804ce5a4
           headers:{
             "Content-type":"application/json",
             "Authorization":`Bearer ${session?.user?.accessToken}`
@@ -265,7 +257,7 @@ console.log('categoryArr',categoryArr);
                 />
           {selectedcats?.length > -1 ? (selectedcats.map((mycat,index) => 
               
-              <div key={index} className="mycategoryArr flex flex-row m-0 p-0">Cat:{mycat}Index:{index}
+              <div key={index} className="mycategoryArr flex flex-row m-0 p-0">{/*Cat:{mycat}Index:{index}*/}
                 <input 
                 onChange={(e) => setMycategoryId((e) => handleNewCat(e, idx))}
                 value={mycat}
