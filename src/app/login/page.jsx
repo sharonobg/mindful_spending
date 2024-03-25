@@ -53,8 +53,8 @@ const Login = () => {
     return(
         <>
         <div className="flex flex-col w-full place-items-center">
-            <div className="flex flex-col border p-4 border-blue-400 shadow-lg rounded-lg w-[50%] place-items-center">
-                <h2 className="text-3xl font-semibold text-blue-400">Log In With Email and Pw</h2>
+            <div className="flex flex-col border p-4 border-blue-400 shadow-lg rounded-lg w-[50%]">
+                <h2 className="text-3xl font-semibold text-blue-400 px-5">Log In With Email and Password</h2>
                 <form action='/api/auth/callback/credentials' onSubmit={handleSubmit} className="flex flex-row flex-wrap gap-5 my-3">
                    
                     <input
@@ -67,16 +67,12 @@ const Login = () => {
                         type="password"
                         placeholder='Password'
                         onChange={(e)=>setPassword(e.target.value)} />
-                        <div className="flex flex-col justify-end place-items-start w-full">
-                        <button className="bg-blue-400 rounded-md p-3 text-white font-semibold justify-start self-start" type="submit">Log in</button>
+                        <div className="flex flex-row  text-center place-items-center w-full gap-8 justify-between px-4">
+                        <button className="bg-blue-400 rounded-md p-3 text-white font-semibold" type="submit">Log in</button>
                         <Link href="/register">Don&apos;t have an account?<br />Register now</Link>
                         </div>
                 </form>
-<<<<<<< HEAD
-               
-=======
                 
->>>>>>> 427f795e2bfa429da2caaa63c57967e8804ce5a4
             </div>
         </div>
         <ToastContainer />
