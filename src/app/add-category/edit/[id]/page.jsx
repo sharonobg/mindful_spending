@@ -13,6 +13,10 @@ const Edit = (ctx) => {
 useEffect(() => {
     async function fetchCategory(){
         const id = ctx.params.id;
+<<<<<<< HEAD
+=======
+        //const res = await fetch(`http://localhost:3000/api/category/${id}`);
+>>>>>>> 427f795e2bfa429da2caaa63c57967e8804ce5a4
         const res = await fetch(`/api/category/${id}`);
         const category = await res.json();
         setTitle(category.title);

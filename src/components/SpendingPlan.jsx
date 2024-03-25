@@ -2,7 +2,12 @@ import {headers} from "next/headers"
 
 const getTotals = async () => {
     try{
+<<<<<<< HEAD
         const res = await fetch("https://sharonobrien.com/api/transactiontitle-totals",{
+=======
+        //const res = await fetch("http://localhost:3000/api/transactiontitle-totals",{
+        const res = await fetch("https://mindful-spending-22924.vercel.app/api/transactiontitle-totals",{
+>>>>>>> 427f795e2bfa429da2caaa63c57967e8804ce5a4
            cache: 'no-store',
            method: "GET",
            headers: headers(),
@@ -19,8 +24,14 @@ const getTotals = async () => {
 }
 const getGrandTotals = async (props) => {
     try{
+<<<<<<< HEAD
         const res = await fetch("https://sharonobrien.com/api/spending-totals-category",{
            cache: 'no-store',
+=======
+        //const res = await fetch("http://localhost:3000/api/spending-totals-category",{
+            const res = await fetch("https://mindful-spending-22924.vercel.app/api/spending-totals-category",{
+        cache: 'no-store',
+>>>>>>> 427f795e2bfa429da2caaa63c57967e8804ce5a4
            method: "GET",
            headers: headers(),
         });

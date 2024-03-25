@@ -72,7 +72,11 @@ const Login = () => {
                         <Link href="/register">Don&apos;t have an account?<br />Register now</Link>
                         </div>
                 </form>
+<<<<<<< HEAD
                
+=======
+                
+>>>>>>> 427f795e2bfa429da2caaa63c57967e8804ce5a4
             </div>
         </div>
         <ToastContainer />

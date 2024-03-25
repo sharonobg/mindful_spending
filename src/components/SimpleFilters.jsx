@@ -51,6 +51,10 @@ export default function SimpleFilterTransaction() {
     //const filteryear = searchParams.fyear ? searchParams.fyear : "not there";
     //console.log('filtersearch',{searchParams})
         useEffect(() => {
+<<<<<<< HEAD
+=======
+            //fetch('http://localhost:3000/api/newsimplefilter')
+>>>>>>> 427f795e2bfa429da2caaa63c57967e8804ce5a4
             fetch('/api/newsimplefilter')
             .then((res) => res.json())
               .then((filters) => {
@@ -60,8 +64,13 @@ export default function SimpleFilterTransaction() {
             },[])
 
           useEffect(() => {
+<<<<<<< HEAD
         
             fetch('/api/category')
+=======
+            fetch('/api/category')
+            //fetch('http://localhost:3000/api/category')
+>>>>>>> 427f795e2bfa429da2caaa63c57967e8804ce5a4
               .then((res) => res.json())
               .then(({categories}) => {
                 setCategories(categories)
