@@ -30,10 +30,6 @@ const Edit = (ctx) => {
     
 useEffect(() => {
     
-<<<<<<< HEAD
-=======
-    //fetch('http://localhost:3000/api/category')
->>>>>>> 427f795e2bfa429da2caaa63c57967e8804ce5a4
     fetch('/api/category')
       .then((res) => res.json())
       .then(({categories}) => {
@@ -46,10 +42,6 @@ useEffect(() => {
     
    async function fetchTransaction() {  
                          
-<<<<<<< HEAD
-=======
-       //const res = await fetch(`http://localhost:3000/api/transaction/${ctx.params.id}`
->>>>>>> 427f795e2bfa429da2caaa63c57967e8804ce5a4
        const res = await fetch(`/api/transaction/${ctx.params.id}`
        ,{cache:'no-store'}
        )
@@ -87,13 +79,8 @@ const handleSubmit= async (e) => {
             categoryId,
             amount
         }
-<<<<<<< HEAD
         const res = await fetch(`/api/transaction/${ctx.params.id}`,{
     
-=======
-        //const res = await fetch(`http://localhost:3000/api/transaction/${ctx.params.id}`,{
-        const res = await fetch(`/api/transaction/${ctx.params.id}`,{
->>>>>>> 427f795e2bfa429da2caaa63c57967e8804ce5a4
         headers: {
             "Content-Type": 'application/json',
             "Authorization": `Bearer ${session?.user?.accessToken}`
@@ -127,13 +114,8 @@ const handleDeleteA= async (e) => {
         //const body = {
         //    transdate,descr,acctype,categoryId,amount
         //}
-<<<<<<< HEAD
         const res = await fetch(`/api/transaction/${ctx.params.id}`,{
     
-=======
-        //const res = await fetch(`http://localhost:3000/api/transaction/${ctx.params.id}`,{
-        const res = await fetch(`/api/transaction/${ctx.params.id}`,{
->>>>>>> 427f795e2bfa429da2caaa63c57967e8804ce5a4
         headers: {
             "Content-Type": 'application/json',
             "Authorization": `Bearer ${session?.user?.accessToken}`
