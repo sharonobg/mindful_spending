@@ -1,8 +1,7 @@
-import connect from "../../../libs/mongodb";
+//import connect from "../../../libs/mongodb";
 import{verifyToken} from '../../../libs/jwt'
 import {NextResponse} from "next/server";
 import Spendingplan from "../../../models/spendingplanModel";
-import Category from "../../../models/categoryModel";
 import {getServerSession} from "next-auth"
 import {authOptions}from"../auth/[...nextauth]/route"
 

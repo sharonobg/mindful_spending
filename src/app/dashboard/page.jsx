@@ -2,13 +2,9 @@ import Link from 'next/link';
 import {getServerSession} from "next-auth";
 import connect from '../../libs/mongodb'
 import TransactionsListId from '../../components/TransactionsListId';
-//import TransactionsListIdClient from '../components/TransactionsListIdClient';
 import SimpleFilters from '../../components/SimpleFilters';
-import SpendingPlan from '../../components/SpendingPlan';
-//
 import SPWSpendPlanCombo from '../../components/SPWSpendPlanCombo';
 import SpendingPlanRunningTot from '../../components/SpendingPlanRunningTot';
-//import Categories from '../../components/Categories';
 
 
 export default async function Dashboard({searchParams}) {

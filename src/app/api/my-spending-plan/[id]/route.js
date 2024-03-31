@@ -23,7 +23,7 @@ export async function PUT(req,{params:{id}}){
         const body = await req.json()
         //console.log('body befor breaks: ',body)
         const spendingplan = await Spendingplan.findById(id).populate("authorId");
-        console.log('id page spendingplan: ',spendingplan)
+        //console.log('id page spendingplan: ',spendingplan)
         if(spendingplan?.authorId?._id.toString() !== decodedToken._id.toString()){
             return new Response(JSON.stringify({message:"Only author can update his spendingplan"}),{status:403})
         }
@@ -42,9 +42,8 @@ export async function PUT(req,{params:{id}}){
 export async function DELETE(req, { params }){
     //await connect();
     const id = params.id;
-    console.log(id);
+    //console.log(id);
     const accessToken = req.headers.get('authorization')
-    console.log('delete auth header: ', accessToken)
     const token = accessToken.split(" ")[1]
     const decodedToken = verifyToken(token)
     if(!accessToken || !decodedToken){

@@ -8,12 +8,12 @@ export const filterTrans = async(formData)=> {
     //            ['filters',transactionFilters.join(',')]
     //        ])
     //console.log('parms',params)
-    console.log('transactionFilters',transactionFilters)
+    //console.log('transactionFilters',transactionFilters)
     //if(transactionFilters.length > 0){
         const params = new URLSearchParams([
             ['filters',transactionFilters.join(',')]
         ])
-        console.log(params)
+        //console.log(params)
     //}
     //console.log("no params")
     redirect('/?${params}')
@@ -26,12 +26,12 @@ export const updateFilters = async(formData)=> {
     //            ['filters',transactionFilters.join(',')]
     //        ])
     //console.log('parms',params)
-    console.log('transactionFilters',transactionFilters)
+    //console.log('transactionFilters',transactionFilters)
     //if(transactionFilters.length > 0){
         const params = new URLSearchParams([
             ['filters',transactionFilters.join(',')]
         ])
-        console.log(params)
+        //console.log(params)
     //}
     //console.log("no params")
     redirect('/?${params}')

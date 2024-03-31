@@ -24,13 +24,13 @@ export async function PUT(req,{params:{id}}){
     try{
         
         const body = await req.json()
-        console.log('body befor breaks: ',body)
+        //console.log('body befor breaks: ',body)
         const category = await Category.findById(id);
-        console.log(category)
+        //console.log(category)
         
         const updatedCategory = await Category.findByIdAndUpdate(id, {$set:{...body} } ,{new: true})
     
-        console.log('updated: ',updatedCategory)
+        //console.log('updated: ',updatedCategory)
 
     return new Response(JSON.stringify(updatedCategory),{status: 200})
 
@@ -42,7 +42,6 @@ export async function PUT(req,{params:{id}}){
 export async function DELETE(req){
     //await connect();
     const accessToken = req.headers.get('authorization')
-    console.log('delete auth header: ', accessToken)
     const token = accessToken.split(" ")[1]
     const decodedToken = verifyToken(token)
     if(!accessToken || !decodedToken){

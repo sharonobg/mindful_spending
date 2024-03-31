@@ -2,7 +2,6 @@ import connect from "../../../libs/mongodb";
 import{verifyToken} from '../../../libs/jwt'
 import {NextResponse} from "next/server";
 import Spendingplan from "../../../models/spendingplanModel";
-import Category from "../../../models/categoryModel";
 import {getServerSession} from "next-auth"
 import {authOptions}from"../auth/[...nextauth]/route"
 import Transaction from "../../../models/transactionModel";
@@ -113,7 +112,7 @@ export async function POST(request){
         const body = await request.json();
         const newSpendingplan = await Spendingplan.create(body);
        
-        console.log('newSpendingplan fr route',newSpendingplan)
+        //console.log('newSpendingplan fr route',newSpendingplan)
         return new Response(JSON.stringify(newSpendingplan),{status: 201})
        
     }catch (error){

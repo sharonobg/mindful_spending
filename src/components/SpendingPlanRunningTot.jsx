@@ -1,8 +1,6 @@
-import {headers} from "next/headers"
 import Transaction from "../models/transactionModel";
 import {getServerSession} from "next-auth"
 import {authOptions} from "../app/api/auth/[...nextauth]/route"
-//import {Spendingplan} from "../models/spendingplanModel";
 
 export default async function CategoryView(props) {
 
