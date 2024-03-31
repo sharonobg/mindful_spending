@@ -1,22 +1,5 @@
-import {headers} from "next/headers"
+const getCategories = await Category.find().sort({ title: 1 });
 
-const getCategories = async () => {
-    try{
-        const res = await fetch("https://sharonobrien.com/api/category",{
-           //cache: 'no-store',
-           method: "GET",
-           headers: headers(),
-        });
-        if(!res.ok){
-            throw new Error("Failed to fetch categories");
-        }
-        //console.log('route categories',{categories})
-        return res.json();
-    }catch(error){
-        console.log("Error finding categories",error)
-    }
-
-}
 export default async function CategoryListing() {
 
     const {categories} = await getCategories();
