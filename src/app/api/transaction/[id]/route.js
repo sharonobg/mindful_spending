@@ -43,9 +43,7 @@ export async function PUT(req,{params:{id}}){
 export async function DELETE(req, { params }){
     //await connect();
     const id = params.id;
-    console.log(id);
     const accessToken = req.headers.get('authorization')
-    console.log('delete auth header: ', accessToken)
     const token = accessToken.split(" ")[1]
     const decodedToken = verifyToken(token)
     if(!accessToken || !decodedToken){

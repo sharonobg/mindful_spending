@@ -4,10 +4,10 @@ import connect from '../../libs/mongodb'
 import TransactionsListId from '../../components/TransactionsListId';
 //import TransactionsListIdClient from '../components/TransactionsListIdClient';
 import SimpleFilters from '../../components/SimpleFilters';
-//import SpendingPlan from '../components/SpendingPlan';
+import SpendingPlan from '../../components/SpendingPlan';
 //
-//import SPWSpendPlanCombo from '../../components/SPWSpendPlanCombo';
-//import Combo21324 from '../../components/Combo21324';
+import SPWSpendPlanCombo from '../../components/SPWSpendPlanCombo';
+import SpendingPlanRunningTot from '../../components/SpendingPlanRunningTot';
 //import Categories from '../../components/Categories';
 
 
@@ -21,17 +21,17 @@ export default async function Dashboard({searchParams}) {
 const getMonth = new Date()
 const month = getMonth.toLocaleString('default', { month: 'long' });
 const thisMonth = new Date().getMonth()+1;//this is default
-console.log('thisMonth',thisMonth)
+//console.log('thisMonth',thisMonth)
 const thisYear = new Date().getFullYear()
 //console.log('home props',searchParams)
-//const filteryear = searchParams.fyear? searchParams.fyear : thisYear;
-//const filtermonth = searchParams.fmonth? searchParams.fmonth : thisMonth;
-//const filtermonthtotal=searchParams.fmonth? searchParams.fmonth : thisMonth;
-//const filtercategory= searchParams.category? searchParams.category : "all-categories"
-const filteryear = 2024;
-const filtermonth = 3;
+const filteryear = searchParams.fyear? searchParams.fyear : thisYear;
+const filtermonth = searchParams.fmonth? searchParams.fmonth : thisMonth;
 const filtermonthtotal=searchParams.fmonth? searchParams.fmonth : thisMonth;
-const filtercategory=  "all-categories"
+const filtercategory= searchParams.category? searchParams.category : "all-categories"
+//const filteryear = 2024;
+//const filtermonth = 3;
+//const filtermonthtotal=searchParams.fmonth? searchParams.fmonth : thisMonth;
+//const filtercategory=  "all-categories"
 //console.log('prop searchParams:',searchParams)
 //console.log('propFilteryear:',filteryear)
 //console.log('propFiltermonth:',filtermonth)
@@ -45,11 +45,12 @@ const filtercategory=  "all-categories"
     {session?.user?.email ? 
     (
       <>
+      <h1 className="text-center text-lg">Finals</h1>
       <h1>Month:{filtermonth}/{filteryear}     Category: {filtercategory ? filtercategory : "All-Categories"}</h1>
       <SimpleFilters />
-      {/*<SPWSpendPlanCombo fyear={filteryear} fmonth={filtermonth}category={filtercategory} />
-      <Combo21324 fyear={filteryear} fmonth={filtermonth} category={filtercategory} />
-      <SpendingPlan fyear={filteryear} fmonth={filtermonth} category={filtercategory} />*/}
+      <SPWSpendPlanCombo fyear={filteryear} fmonth={filtermonth} category={filtercategory} />
+      <SpendingPlanRunningTot fyear={filteryear} fmonth={filtermonth} category={filtercategory} />
+      {/*<SpendingPlan fyear={filteryear} fmonth={filtermonth} category={filtercategory} />*/}
       {/*<TransactionsListId fmonth={searchParams?.fmonth|thisMonth} category={searchParams?.category|undefined}/>*/}
       <TransactionsListId fyear={filteryear} fmonth={filtermonth} category={filtercategory} />
       </>

@@ -19,9 +19,9 @@ const CategoryDetails = (ctx) => {
            const res = await fetch(`/api/category/${ctx.params.id}`,{cache:'no-store'})
            
            const category = await res.json()
-           console.log('category after await: ',category)
+           //console.log('category after await: ',category)
            setCategoryDetails(category);
-           console.log('category title: ',category?.title)
+           //console.log('category title: ',category?.title)
        }
       session && fetchCategory()
       
@@ -37,7 +37,7 @@ const CategoryDetails = (ctx) => {
             method:"DELETE"
         }) 
         if(res.ok){
-            router.push("/")
+            router.push("/dashboard")
         }
     }
         

@@ -79,16 +79,6 @@ useEffect(() => {
 
 },[])
 
-// useEffect(() => {
-//   async function fetchCategories() { 
-// const categoriesChecked=spendingplanDetails.mycategories;
-// console.log("categoriesChecked: ",categoriesChecked)
-//     }
-//  fetchCategories()
-
-// },[])
-
-
 console.log('spendingplanDetails',spendingplanDetails)
 
 if(status === 'loading'){
@@ -103,7 +93,7 @@ if(status === 'loading'){
         const target = e.currentTarget;
         
         const catid = target.id;
-        console.log(catid)
+        //console.log(catid)
         setSelectedcats(() => 
         target.checked ? [...selectedcats,catid]
         : selectedcats.filter((mycategory) => mycategory !== catid))
@@ -123,7 +113,7 @@ if(status === 'loading'){
         //authorId:session?.user._id
     })
 mycategories.push({selections})
-console.log('set my categories',mycategories)
+//console.log('set my categories',mycategories)
       }
 
 
@@ -166,8 +156,8 @@ const handleSubmit= async (e) => {
     }
 
     const spendingplan = await res.json();
-    console.log('spendingplan edit: ',spendingplan);
-    router.push("/");
+    //console.log('spendingplan edit: ',spendingplan);
+    router.push("/dashboard");
     }catch(error){
         console.log(error)
     }
@@ -175,7 +165,7 @@ const handleSubmit= async (e) => {
 const handleDeleteA= async (e) => {
     e.preventDefault();
     try{
-        const id = ctx.params.id;
+        //const id = ctx.params.id;
         //const body = {
         //    transdate,descr,acctype,categoryId,amount
         //}
@@ -205,24 +195,7 @@ const handleDeleteA= async (e) => {
     }catch(error){
         console.log(error)
     }
-    
 }
-// const handleDelete = async (ctx) => {
-//     const id = ctx.params.id
-//     console.log(id)
-//         const confirmed = confirm("Are you sure?");
-//         if(confirmed){
-//             //ctx.params.id
-            
-//             const res = await fetch(`/api/spendingplan/${ctx.params.id}`, {
-//                 method: "DELETE"
-//             });
-//             if(res.ok){
-//                 router.refresh();
-//             }
-            
-//         }
-//     }
 
 return(
     <>

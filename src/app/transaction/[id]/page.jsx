@@ -100,7 +100,7 @@ const handleSubmit= async (e) => {
 
     const transaction = await res.json();
     //console.log('transaction edit: ',transaction);
-    router.push("/");
+    router.push("/dashboard");
     }catch(error){
         console.log(error)
     }

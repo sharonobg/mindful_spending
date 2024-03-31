@@ -111,7 +111,6 @@ export async function POST(request){
     }
     try{
         const body = await request.json();
-        console.log('body fr SP route',body)//ok
         const newSpendingplan = await Spendingplan.create(body);
        
         console.log('newSpendingplan fr route',newSpendingplan)

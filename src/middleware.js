@@ -6,9 +6,9 @@ import {NextRequest, NextResponse} from "next/server";
       'https://www.sharonobrien.com',
       'http://www.sharonobrien.com',
       'https://sharonobrien.com',
-    'http://localhost:3000/',
-    'https://mindful-spending-22924.vercel.app/',
-    'https://mindful-spending.vercel.app/',
+      'http://localhost:3000/',
+      'https://mindful-spending-22924.vercel.app/',
+      'https://mindful-spending.vercel.app/',
     ]
     const corsOptions = {
         'Access-Control-Allow-Headers':

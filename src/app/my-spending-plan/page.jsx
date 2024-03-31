@@ -31,6 +31,11 @@ const CreateSpendingPlan = () => {
     const [categorynotes,setCategorynotes]= useState("")
     const [mycategoryId,setMycategoryId]= useState("")
     const [isChecked, setIsChecked] = useState(false);
+    //income
+    const [incomeamount,setIncomeamount]=useState("");
+    const [incometype,setIncometype]=useState("");
+    const [incomedate,setIncomedate]=useState(new Date());
+    const [incomedescr,setIncomedescr]=useState("");
     const {data:session,status} = useSession();
     //const isCheckedId="";
     const router= useRouter();
@@ -55,7 +60,7 @@ const CreateSpendingPlan = () => {
     try{
       const target = e.currentTarget;
       const catid = target.id;
-      console.log(catid)
+      //console.log(catid)
       setSelectedcats(() => 
       target.checked ? [...selectedcats,catid]
       : selectedcats.filter((mycategory) => mycategory !== catid))
@@ -118,16 +123,16 @@ const CreateSpendingPlan = () => {
           planamount:parseFloat(planamount).toFixed(2),
           authorId:session?.user?._id,
         }
-        console.log('newSelection',newSelection)
+        //console.log('newSelection',newSelection)
         
   selections.push(newSelection)
   
-  console.log('selections',selections)
+  //console.log('selections',selections)
 
   //setMycategories(mycategories => [...mycategories, selections]);
   setMycategories(selections)
   //mycategories.push(newSelection)
-  console.log('set mycategories',mycategories)
+  //console.log('set mycategories',mycategories)
 
       } catch(err){
         console.log(err)
@@ -135,91 +140,81 @@ const CreateSpendingPlan = () => {
       
     }
   //Button Create Spending Plan(form submit)
-  const handleSubmit = async (e) => {
+  const handleSubmitSp = async (e) => {
     e.preventDefault();
-     // let newCat = [...mycategories.mycategoryId];
-  //   mycategories.mycategoryId[idx].value = e.target.value;
-  //   setMycategoryId(newCat);
-   const updatedCategories = [...mycategories];
-   const categoryArr = mycategories.filter((mycategoryId, index) => {
+    const updatedCategories = [...mycategories];
+    const categoryArr = mycategories.filter((mycategoryId, index) => {
     return mycategories.indexOf(mycategoryId) === index;
-});
-console.log('categoryArr',categoryArr);
-   updatedCategories.push(categoryArr);
+    });
+    //console.log('categoryArr',categoryArr);
+    updatedCategories.push(categoryArr);
 
-   //setMycategories(current => [...current, selections])
-   setMycategories(mycategories => [...mycategories,updatedCategories]);
+    setMycategories(mycategories => [...mycategories,updatedCategories]);
     const body = {
       authorId:session?.user?._id,
       planmonthyear:new Date(planmonthyear),
       mycategories:mycategories
-      // mycategories:[{
-      //   mycategoryId:mycategoryId,
-      //   categorynotes:categorynotes,
-      //   explain:explain,
-      //   isChecked:true,
-      //   planamount:parseFloat(planamount).toFixed(2),
-      // }]
     }
- 
-
-
-    // let newCats =[....mycategories,mycategories]
-    // let nwBody = 
-    
-    
     try{
-        //const amount = parseFloat(amount).toFixed(2);
-         const res = await fetch('/api/my-spending-plan',{
-          //const newplan = await fetch('/api/my-spending-plan',{
-          headers:{
+      const res = await fetch('/api/my-spending-plan',{
+      headers:{
             "Content-type":"application/json",
             "Authorization":`Bearer ${session?.user?.accessToken}`
           },
-            method:'POST',
-            
-            // body:JSON.stringify({
-                // authorId:session?.user?._id,
-                // planmonthyear:new Date(planmonthyear),
-                // mycategories:[mycategories]
-            // })
-            body:JSON.stringify(body)
-        })
-        console.log('client handleSubmit spendingplan res',res);
-        console.log('client handleSubmit spendingplan body',body);
-        if(!res.ok){
+      method:'POST',
+      body:JSON.stringify(body)
+    })
+    //console.log('client handleSubmit spendingplan res',res);
+    //console.log('client handleSubmit spendingplan body',body);
+    if(!res.ok){
             throw new Error("Error on spending plan or auth")
-        }
-        const spendingplan = await res.json();
-        console.log('spendingplan ln128',spendingplan)
+    }
+    const spendingplan = await res.json();
+    //console.log('spendingplan ln128',spendingplan)
         //router.push(`/spending-plan/${spendingplan?._id}`)
         //router.refresh();
         //router.push('/');
     }catch (error) {
       console.log('not working',error)
       toast.error("Handle Submit did't go through");
-            return
+      return
     }
-    // setPlanmonthyear(new Date())
-    // setMycategoryId('')
-    // setPlanamount('')
-    // setMycategories([])
-    // setExplain('')mycategories.explain[idx].value
-    // setCategorynotes('')
-    
-
 }
+const handleSubmitInc = async (e) => {
+  e.preventDefault();
+  const body = {
+    incomedate:new Date(incomedate),
+    incomedescr,
+    incometype,
+    incomeamount:parseFloat(incomeamount).toFixed(2),
+  }
 
-//console.log('categories',categories)
-
-  
-  //console.log("isChecked", isChecked);
-  //console.log("category", mycategoryId);
-  
-  //console.log('mycategories',mycategories)
-  //console.log(' ue mycategories', mycategories);
-
-
+  //uptohere
+  try{
+    const res = await fetch('/api/my-spending-plan',{
+    headers:{
+          "Content-type":"application/json",
+          "Authorization":`Bearer ${session?.user?.accessToken}`
+        },
+    method:'POST',
+    body:JSON.stringify(body)
+  })
+  //console.log('client handleSubmit spendingplan res',res);
+  //console.log('client handleSubmit spendingplan body',body);
+  if(!res.ok){
+          throw new Error("Error on spending plan or auth")
+  }
+  const spendingplan = await res.json();
+  //console.log('spendingplan ln128',spendingplan)
+      //router.push(`/spending-plan/${spendingplan?._id}`)
+      //router.refresh();
+      //router.push('/');
+  }catch (error) {
+    console.log('not working',error)
+    toast.error("Handle Submit did't go through");
+    return
+  }
+}
     return(
         <>
         <div className="flex flex-col self-center place-items-center border-l-orange-100">
@@ -227,7 +222,7 @@ console.log('categoryArr',categoryArr);
         <div  className="flex flex-row">
         <div  className="flex flex-col border-r-2 border-blue-500 min-w-fit">
         <div className="flex flex-col">
-        {categories?.length > -1 ? (categories.map((category,index) =>
+        {categories?.length > -1 ? (categories.slice(1).map((category,index) =>
         <div key={category._id} className="flex flex-col m-0 py-0 px-2 items-end">     
         <label htmlFor={category._id} className="m-0 py-0 px-2 align-items-center ">{category.title}
         <input 
@@ -246,7 +241,7 @@ console.log('categoryArr',categoryArr);
         </div>
       </div>
       <div  className="flex flex-col px-5">
-        <form onSubmit={handleSubmit} className="flex flex-col flex-wrap gap-5 my-3">
+        <form onSubmit={handleSubmitSp} className="flex flex-col flex-wrap gap-5 my-3">
           <div  className="flex flex-col">
             <DatePicker
               className="ml-0"
@@ -256,7 +251,7 @@ console.log('categoryArr',categoryArr);
                 onChange={(date) => setPlanmonthyear(date)}
                 />
           {selectedcats?.length > -1 ? (selectedcats.map((mycat,index) => 
-              
+            
               <div key={index} className="mycategoryArr flex flex-row m-0 p-0">{/*Cat:{mycat}Index:{index}*/}
                 <input 
                 onChange={(e) => setMycategoryId((e) => handleNewCat(e, idx))}
@@ -299,8 +294,38 @@ console.log('categoryArr',categoryArr);
               <button className="w-fit bg-blue-400 rounded-md p-3 text-white font-semibold ml-0" type="submit">Create Spending Plan</button>
               
           </form>
+        </div>
+        </div>
+        {/*<div  className="flex flex-col border-t-2 border-blue-400 w-3/4 my-5 place-items-center">
+        <div  className="flex flex-col px-5">
+          <form id="incsubmit" onSubmit={handleSubmitInc} className="flex flex-col flex-wrap gap-5 my-3">
+          <div  className="flex flex-col">
+            <DatePicker classname="border border-blue-600" selected={incomedate} onChange={(date) => setIncomedate(date)} />
+            <input onChange={(e) => setIncomedescr(e.target.value)}
+              className="px-4 py-2 mt-4 mx-5 border border-green-200 text-green-500"
+              name="income-description"
+              placeholder="Income Description"
+              type="text"
+                />
+              <select type="text" value ={incometype} onChange={(e) => setIncometype(e.target.value)}>
+                <option value="wages">Wages</option>
+                <option value="tips">Tips</option>
+                <option value="interest">Interest Income</option>
+                <option value="retirement-income">Retirement Income</option>
+                <option value="child-support">Child Support</option>
+                <option value="other">Other</option>
+                </select>
+                <input onChange={(e) => setIncomeamount(e.target.value)}
+                name="incomeamount"
+                placeholder="0.00"
+                type="string"
+                />
+              </div>
+              <button className="w-fit bg-blue-400 rounded-md p-3 text-white font-semibold ml-0" type="submit">Create Planned Income</button>
+              
+          </form>
           </div>
-      </div>
+      </div>*/}
 </div>
     
        <ToastContainer />  

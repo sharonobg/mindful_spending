@@ -76,7 +76,7 @@ export default function SimpleFilterTransaction() {
     const clearFilter = (e) => {
       e.preventDefault();
      //console.log('filter params', params)
-     router.push(`/?fyear=${queryYear ? queryYear : getYear }&fmonth=${queryMonth ? queryMonth : getMonth+1 }&category=all-categories`)
+     router.push(`/dashboard?fyear=${queryYear ? queryYear : getYear }&fmonth=${queryMonth ? queryMonth : getMonth+1 }&category=all-categories`)
 
     }
     const categoryFilter = (e) => {
@@ -92,7 +92,7 @@ export default function SimpleFilterTransaction() {
       //console.log('params props newYear filter: ',newYear)
       //console.log('params props category filter: ',categoryTitle)
       //console.log('params props dates filter: ',datesfilterVal)
-      router.push(`/?fyear=${queryYear ? queryYear : getYear }&fmonth=${queryMonth ? queryMonth : getMonth+1 }&category=${categoryT}`)
+      router.push(`/dashboard?fyear=${queryYear ? queryYear : getYear }&fmonth=${queryMonth ? queryMonth : getMonth+1 }&category=${categoryT}`)
 
       //console.log('categories: ',categories)
   // if fmonth = the transaction month = show results = else hide results
@@ -110,7 +110,7 @@ export default function SimpleFilterTransaction() {
         //console.log('params props newYear filter: ',newYear)
         //console.log('params props category filter: ',categoryTitle)
         //console.log('params props dates filter: ',datesfilterVal)
-        router.push(`/?fyear=${newYear ? newYear: queryYear}&fmonth=${newMonth ? newMonth : queryMonth}&category=${queryCategory ? queryCategory : "all-categories"}`)
+        router.push(`/dashboard?fyear=${newYear ? newYear: queryYear}&fmonth=${newMonth ? newMonth : queryMonth}&category=${queryCategory ? queryCategory : "all-categories"}`)
 
         //console.log('categories: ',categories)
     // if fmonth = the transaction month = show results = else hide results
@@ -156,7 +156,8 @@ export default function SimpleFilterTransaction() {
                     <option key={index} value={`${filter._id.month}${filter._id.year}`}>{filter._id.month}/{filter._id.year}</option>
                 )}
                 )): "no dates are available"}
-              </select><button className="bg-blue-400 rounded-md p-1 m-2 h-fit justify-center align-middle text-white font-semibold flex" type="submit">Choose Month</button>
+              </select>
+              <button className="bg-blue-400 rounded-md p-1 m-2 h-fit justify-center align-middle text-white font-semibold flex" type="submit">Choose Month</button>
             </div>
           </form>
         </div>

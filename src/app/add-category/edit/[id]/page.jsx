@@ -45,16 +45,16 @@ const handleSubmit= async (e) => {
         body:JSON.stringify(body)
         
     })
-    console.log('res after edit:',res)
+    //console.log('res after edit:',res)
     if(res.ok){
-        console.log("Edit went through")
+        //console.log("Edit went through")
     }else{
         console.log("Edit failed")
     }
 
     const category = await res.json();
-    console.log(category);
-    router.push("/");
+    //console.log(category);
+    router.push("/dashboard");
     }catch(error){
         console.log(error)
     }

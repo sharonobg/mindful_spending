@@ -79,7 +79,12 @@ const CreateTransaction = () => {
         <div className="flex flex-col w-full place-items-center border-l-orange-100">
             <h2>Create Transaction</h2>
             <form onSubmit={handleSubmit} className="flex flex-col flex-wrap gap-5 my-3">
-                
+            <select onChange={(e) => setCategoryId(e.target.value)}>
+                    {categories?.length > -1 ? 
+                    (categories.slice(1).map((category) =>
+                        <option key={category._id} value={category._id}>{category._id}:{category.title}</option>
+                    
+                   ) ): "no categories are available"}</select>
                 <DatePicker classname="border border-blue-600" selected={transdate} onChange={(date) => setTransdate(date)} />
                 <input onChange={(e) => setDescr(e.target.value)}
                 className="px-4 py-2 mt-4 mx-5 border border-green-200 text-green-500"
@@ -93,12 +98,7 @@ const CreateTransaction = () => {
                 <option value="bank_account">Bank Account</option>
                 <option value="other">Other</option>
                 </select>
-                <select onChange={(e) => setCategoryId(e.target.value)}>
-                    {categories?.length > -1 ? 
-                    (categories.map((category) => 
-                        <option key={category._id} value={category._id}>{category._id}:{category.title}</option>
-
-                   ) ): "no categories are available"}</select>
+                
                 <input onChange={(e) => setAmount(e.target.value)}
                 name="amount"
                 placeholder="0.00"

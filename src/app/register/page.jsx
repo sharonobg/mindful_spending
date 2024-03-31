@@ -105,7 +105,7 @@ const toggleShowPass =(e) => {
         validateForm(); 
     }, [username, email, password]);
     useEffect(() => { 
-        console.log(showPass) 
+         
     }, [showPass]);
     return(
         <>

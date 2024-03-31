@@ -32,6 +32,35 @@ const SpendingplanSchema = new Schema(
         required:true
     },
     mycategories:[mycategoriesSchema],
+    incometype :{
+        type: String,
+        required: true,
+        enum: [ 
+                "wages",
+                "tips",
+                "interest",
+                "child-support",
+                "retirement-income",
+                "other"
+            ]
+    },
+    incomedate:{
+        type: Date,
+        //type: new ISODate("<YYYY-mm-dd>"), doesnt wk
+        default: new Date(),
+        required:true
+        },
+    incomedescr:{
+            type: String,
+            required: true,
+            min:6
+    },
+    incomeamount:{
+        default:1.00,
+        type:mongoose.Schema.Types.Decimal128,
+        //get: getAmount
+        required:true
+    }
     // difference:{
     //     type:mongoose.SchemaTypes.Decimal128,
     //     default:0.00
