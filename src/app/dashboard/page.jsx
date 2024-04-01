@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import {getServerSession} from "next-auth";
+import {authOptions} from "../api/auth/[...nextauth]/route"
 import connect from '../../libs/mongodb'
 import TransactionsListId from '../../components/TransactionsListId';
 import SimpleFilters from '../../components/SimpleFilters';
@@ -10,7 +11,8 @@ import SpendingPlanRunningTot from '../../components/SpendingPlanRunningTot';
 export default async function Dashboard({searchParams}) {
   
   await connect()
-  const session = await getServerSession();
+  const session = await getServerSession(authOptions);
+      const sessionUser = session?.user?._id;
   //filter - default is current month but can select from a dropdown of all months
 
   //let query = filters;

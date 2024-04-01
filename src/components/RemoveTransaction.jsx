@@ -7,7 +7,6 @@ export default function RemoveBtn({id}) {
     const removeTransaction = async () => {
         const confirmed = confirm("Are you sure?");
         if(confirmed){
-            //const res = await fetch(`http://localhost:3000/api/transaction?id=${id}`, {
             const res = await fetch(`/api/transaction?id=${id}`, {
                 method: "DELETE"
             });

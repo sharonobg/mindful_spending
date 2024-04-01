@@ -69,6 +69,7 @@ const CreateTransaction = () => {
             //console.log('transaction ln65',transaction)
             //router.refresh()
             //router.push(`/transaction/${transaction?._id}`)
+             router.push(`/dashboard}`)
         }catch (error) {
 
         }
